@@ -1,2 +1,54 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>弹呀</title><link>https://im-tanya1.github.io</link><description>弹呀的技术博客</description><copyright>弹呀</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/176645466?v=4</url><title>avatar</title><link>https://im-tanya1.github.io</link></image><lastBuildDate>Wed, 28 Aug 2024 01:03:10 +0000</lastBuildDate><managingEditor>弹呀</managingEditor><ttl>60</ttl><webMaster>弹呀</webMaster></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>弹呀</title><link>https://im-tanya1.github.io</link><description>弹呀的技术博客</description><copyright>弹呀</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/176645466?v=4</url><title>avatar</title><link>https://im-tanya1.github.io</link></image><lastBuildDate>Wed, 28 Aug 2024 01:23:37 +0000</lastBuildDate><managingEditor>弹呀</managingEditor><ttl>60</ttl><webMaster>弹呀</webMaster><item><title>文件管理器项目</title><link>https://im-tanya1.github.io/post/wen-jian-guan-li-qi-xiang-mu.html</link><description>## 开发相关
+使用webcat开发，因此项目整体使用前端语法
+一些文件api使用wc.js，因其功能不多，所以在开发中我们受到较多的限制！
+![Screenshot_2024_0828_091041.png](https://github.com/user-attachments/assets/2c468f92-90a3-4327-a624-70859bd955b8)
+
+```html
+    &lt;ul style='height: calc(100% - 40px);' id='fl'&gt;
+        &lt;li @click='lastPage()' style='overflow:hidden;max-height:50px' class='fiinn mdui-ripple'&gt;
+            &lt;div class='mdui-valign fiv'&gt;
+                &lt;img src='img/dir.png' alt=''/&gt;
+                &lt;div class='lone'&gt;
+                    &lt;span class='fn'&gt;
+                      &lt;sub style='white-space: nowrap;overflow: hidden;max-width: 80%;'&gt;...&lt;/sub&gt;
+                    &lt;/span&gt;&lt;br&gt;
+                    &lt;span class='fs'&gt;
+                        &lt;span&gt;上一页&lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li @click='openDF(index)' style='overflow:hidden;max-height:50px' class='fiin mdui-ripple' v-for='(item, index) in fl'&gt;
+            &lt;div class='mdui-valign fiv'&gt;
+                &lt;img class='chli' style='display: none;' src='img/check.png' alt=''/&gt;
+            
+                &lt;img :src='item.imgSrc' alt=''/&gt;                
+                &lt;div class='lone'&gt;
+                  &lt;span class='fn'&gt;&lt;sub&gt;{{ item.newNames }}&lt;/sub&gt;&lt;/span&gt;&lt;br&gt;
+                    &lt;span class='fs'&gt;
+                        &lt;span v-if='item.type == 'dir''&gt;文件夹 - {{ item.size }} 个文件&lt;/span&gt;
+                        &lt;span v-else=''&gt;文件 - 
+                        &lt;span v-if='item.size &lt;= 1024'&gt;{{ item.size }}B&lt;/span&gt;
+                        &lt;span v-else-if='item.size / 1024 &lt; 1024'&gt;{{ (item.size / 1024).toFixed(2) }}KB&lt;/span&gt;
+                        &lt;span v-else-if='item.size / 1024 / 1024 &lt; 1024'&gt;{{ (item.size / 1024 / 1024).toFixed(2) }}MB&lt;/span&gt;
+                        &lt;span v-else=''&gt;{{ (item.size / 1024 / 1024 / 1024).toFixed(2) }}GB&lt;/span&gt;
+                    &lt;/span&gt;
+                  &lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+```
+
+截止2024.8.28，项目主要使用了
+- vue.js
+- wc.js
+两个JS库
+
+## 主要功能
+目前已经实现了识别文件格式、以文本打开文件、刷新目录、路径显示
+https://github.com/user-attachments/assets/5f53d031-86a5-4ce8-ae03-21d2089f6e09
+
+
+。</description><guid isPermaLink="true">https://im-tanya1.github.io/post/wen-jian-guan-li-qi-xiang-mu.html</guid><pubDate>Wed, 28 Aug 2024 01:21:14 +0000</pubDate></item></channel></rss>
